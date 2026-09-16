@@ -4,11 +4,12 @@ require('dns').setServers(['8.8.8.8', '1.1.1.1']);//imp
 require("dotenv/config")
 const attendanceRoute = require("./route/AttenRoute")
 const userRoute = require("./route/UserRoute")
-
+const cors = require("cors")
 const app = express()
 
 
 app.use(express.json())
+app.use(cors())
 
 
 app.get("/", (req, res) => {
