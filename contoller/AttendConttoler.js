@@ -34,3 +34,13 @@ exports.updateAttendance = async (req, res) => {
         return res.status(500).json({ errors: true, message: error.message })
     }
 }
+
+exports.deleteAttendance = async (req, res) => {
+    try {
+        const data = await Attendance.findByIdAndDelete(req.params.id)
+        return res.json({ errors: false, data: data })
+
+    } catch (error) {
+        return res.status(500).json({ errors: true, message: error.message })
+    }
+}
